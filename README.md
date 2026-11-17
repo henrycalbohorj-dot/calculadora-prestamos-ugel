@@ -84,8 +84,8 @@ Descuento Judicial / CONTASE, Interbank, Caja Arequipa, Caja Ica,
 Scotiabank, Coopsemul, Subcafae, Banco Pichincha), más un usuario
 administrador inicial:
 
-- **Usuario:** `admin`
-- **Contraseña:** `admin123`
+- **Usuario:** `admin(example)`
+- **Contraseña:** `admin123(example)`
 
 **Cambia esta contraseña de inmediato** (puedes crear un nuevo usuario
 administrador o actualizar el hash de `admin` directamente en la tabla
@@ -119,35 +119,6 @@ php -S localhost:8000
 
 Y abre `http://localhost:8000/login.php` en el navegador.
 
-## Actualizar una instalación existente (ya tenías una versión anterior)
-
-Si ya tenías la calculadora instalada y con evaluaciones guardadas, **no
-vuelvas a correr `schema.sql`** (borraría el `admin` y los catálogos ya
-personalizados). En su lugar:
-
-1. Abre pgAdmin (o `psql`) contra tu base `calculadora_prestamos` ya
-   existente.
-2. Ejecuta, en este orden, **`migracion_v2.sql`**, **`migracion_v3.sql`**
-   y **`migracion_v4.sql`** incluidos en este paquete (si ya habías
-   corrido alguno antes, no hay problema en volver a ejecutarlo — son
-   seguros y no duplican nada). Juntos agregan las tablas y columnas
-   nuevas sin borrar nada, reconstruyen automáticamente la tabla de
-   trabajadores y los contadores de uso a partir de tu historial ya
-   guardado, y agregan los campos de contacto de los usuarios (correo,
-   celular, dirección, cargo, área). **Importante:** después de correr
-   `migracion_v4.sql`, entra a "Usuarios" → "Editar" en cada cuenta que
-   ya tenías creada y completa su correo y celular — son obligatorios
-   para que esa persona pueda usar "Olvidé mi contraseña".
-3. Reemplaza los archivos `.php`, `assets/` y `config/` por los de este
-   paquete — **excepto `config/database.php`**: consérvalo tal cual lo
-   tienes, ya que trae tu contraseña real de PostgreSQL (el que viene en
-   el zip solo trae valores de ejemplo). Si por error lo reemplazaste,
-   solo edítalo de nuevo con tus datos reales de conexión.
-4. Deja `ugel.jpg` donde ya estaba — no se toca.
-
-Repite estos 4 pasos en **cada PC** donde tengas la calculadora
-instalada. Los scripts de migración se pueden ejecutar más de una vez
-sin problema (no duplican nada si ya se aplicaron).
 
 ## Estructura del proyecto
 
