@@ -263,4 +263,4 @@ location ~ ^/calculadora-prestamos-ugel/(config|database|solicitudes/(credencial
 - **Integración:** la vista `avisos_solicitudes` (solo id, estado y fechas) la lee el [Centro de avisos](https://github.com/henrycalbohorj-dot/centro-avisos-ugel) para anunciar en la TV las solicitudes nuevas.
 
 ---
-Desarrollado por **Henry Braulio Pachas Dávalos** · Área de Informática, UGEL Chincha.
+Desarrollado por **Ing. Henry Braulio Pachas Dávalos** · Área de Informática, UGEL Chincha.
